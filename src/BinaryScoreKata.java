@@ -3,9 +3,11 @@ public class BinaryScoreKata {
 
 	public int getBinaryScore(int toScore){
 		int result = 0;
-		for(int x = 0; x< toScore; x++){
-			if((x|x+1) > result){
-				result = x|x+1;
+		if(toScore < 2)
+			return toScore;
+		for(int x = 2; x< toScore; x*=2){
+			if((x-1|x) > result){
+				result = x-1|x;
 			}
 		}
 		return result;
